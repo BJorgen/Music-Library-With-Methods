@@ -20,7 +20,59 @@ var library = {
                       name: "Other Playlist",
                       tracks: ["t03"]
                     }
-             }
+             },
+
+  printPlaylists: function () {
+    for (var  playlist in this.playlists) {
+      console.log(this.playlistSummary(playlist));
+    }
+  },
+
+  playlistSummary: function (playlist) {
+    let currentPlaylist = this.playlists[playlist];
+    return `${playlist}: ${currentPlaylist.name} - ${currentPlaylist.tracks.length} tracks`;
+  },
+
+  printTracks: function () {
+    for (var track in this.tracks) {
+      console.log(this.trackSummary(track))
+    }
+  },
+
+  trackSummary: function (track) {
+    let currentTrack = this.tracks[track];
+    return `${track}: ${currentTrack.name} by ${currentTrack.artist} (${currentTrack.album})`;
+  },
+
+  // printPlaylist: function (playlistId) {
+  //   console.log(playlistSummary(playlistId))
+
+  //   let playlistTracks = this.playlists[playlistId].tracks;
+  //   for (var i = 0; i <  playlistTracks.length; i++) {
+  //     let track = playlistTracks[i];
+  //     console.log(trackSummary(track));
+  //   }
+  // }
+
+  // addTrackToPlaylist: function (trackId, playlistId) {
+  //   let currentTrackList = this.playlists[playlistId].tracks;
+  //   if(!currentTrackList.includes(trackId)) { currentTrackList.push(trackId)}
+  // }
+
+  // uid: function() {
+  //   return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
+  // }
+
+  // addTrack: function (name, artist, album) {
+  //   let trackId = this.uid();
+  //   library.tracks[trackId] = {id: trackId, name: name, artist: artist, album: album}
+  // }
+
+  // addPlaylist: function (name) {
+  //   let playlistId = this.uid();
+  //   library.playlists[playlistId] = {id: playlistId, name: name, tracks: []}
+  // }
+
 }
 
 // FUNCTIONS TO IMPLEMENT:
@@ -120,11 +172,11 @@ var printSearchResults = function(query) {
 
 
 // ----- Testing Code -----
-console.log("\n--- printPlaylists --- \n");
-printPlaylists();
+console.log("\n--- library.printPlaylists --- \n");
+library.printPlaylists();
 
 console.log("\n--- printTracks --- \n");
-printTracks();
+library.printTracks();
 
 console.log("\n--- printPlaylist('p01') --- \n");
 printPlaylist('p01');
